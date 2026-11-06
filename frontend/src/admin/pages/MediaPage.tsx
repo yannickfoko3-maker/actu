@@ -166,7 +166,12 @@ export default function MediaPage() {
                 {data.items.map((item) => (
                   <div key={item.id} className="group overflow-hidden rounded-lg border border-slate-200 bg-white">
                     <div className="relative aspect-[4/3] bg-slate-100">
-                      <img src={item.url} alt={item.alt} className="h-full w-full object-cover" loading="lazy" />
+                      <img
+                        src={item.thumbnailUrl || item.url}
+                        alt={item.alt}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
                       <div className="absolute inset-0 flex items-center justify-center gap-1.5 bg-navy/70 opacity-0 transition-opacity group-hover:opacity-100">
                         <button
                           type="button"
