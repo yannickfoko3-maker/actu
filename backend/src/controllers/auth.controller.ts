@@ -10,7 +10,7 @@ import { hasPermission } from '../auth/permissions';
 
 const cookieOptions = {
   httpOnly: true,
-  sameSite: 'lax' as const,
+  sameSite: env.cookieSameSite,
   secure: env.cookieSecure,
   path: '/',
 };

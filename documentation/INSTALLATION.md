@@ -149,6 +149,7 @@ node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"
 | `DATA_ADAPTER` | `prisma` (production) ou `memory` (démonstration sans MySQL) |
 | `JWT_SECRET` | signature des jetons de session — **obligatoire en production** |
 | `COOKIE_SECURE` | `true` en HTTPS (production) |
+| `COOKIE_SAMESITE` | `lax` par défaut ; `none` si le site et l'API sont sur des domaines différents (HTTPS obligatoire) |
 | `APP_URL` | URL publique du site (sitemap, e-mails, liens) |
 | `CORS_ORIGINS` | origines navigateur autorisées, séparées par des virgules |
 | `UPLOAD_DIR` | dossier des images importées depuis la médiathèque |

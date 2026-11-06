@@ -16,6 +16,17 @@ const int = (value: string | undefined, fallback: number) => {
   return Number.isFinite(parsed) ? parsed : fallback;
 };
 
+/**
+ * Politique SameSite des cookies de session et CSRF.
+ *  - « lax »    : même site (recommandé, un seul domaine ou sous-domaines)
+ *  - « strict » : le plus restrictif
+ *  - « none »   : API hébergée sur un domaine différent du site (nécessite HTTPS)
+ */
+const sameSite = (value: string | undefined): 'lax' | 'strict' | 'none' => {
+  const normalized = (value ?? 'lax').toLowerCase();
+  return normalized === 'none' || normalized === 'strict' ? normalized : 'lax';
+};
+
 export const env = {
   nodeEnv: process.env.NODE_ENV ?? 'development',
   isProduction: process.env.NODE_ENV === 'production',
@@ -39,6 +50,7 @@ export const env = {
   jwtExpiresIn: process.env.JWT_EXPIRES_IN ?? '8h',
   cookieName: process.env.AUTH_COOKIE_NAME ?? 'aces_session',
   cookieSecure: bool(process.env.COOKIE_SECURE, process.env.NODE_ENV === 'production'),
+  cookieSameSite: sameSite(process.env.COOKIE_SAMESITE),
   uploadDir: process.env.UPLOAD_DIR ?? path.join(rootDir, 'uploads'),
   uploadMaxSizeMb: int(process.env.UPLOAD_MAX_SIZE_MB, 8),
   publicUploadPath: '/uploads',

@@ -20,7 +20,7 @@ export function issueCsrfToken(res: Response): string {
   const token = crypto.randomBytes(24).toString('hex');
   res.cookie(CSRF_COOKIE, token, {
     httpOnly: false,
-    sameSite: 'lax',
+    sameSite: env.cookieSameSite,
     secure: env.cookieSecure,
     path: '/',
   });

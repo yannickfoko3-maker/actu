@@ -140,6 +140,7 @@ Changez ce mot de passe dès la première connexion (menu du compte → *Mon pro
 | [`documentation/ADMINISTRATION.md`](documentation/ADMINISTRATION.md) | guide du back-office, rôles, bonnes pratiques |
 | [`documentation/API.md`](documentation/API.md) | référence complète de l'API REST |
 | [`documentation/WINDOWS-XAMPP.md`](documentation/WINDOWS-XAMPP.md) | installation sous Windows avec XAMPP/MySQL |
+| [`documentation/DEPLOIEMENT-INFINITYFREE.md`](documentation/DEPLOIEMENT-INFINITYFREE.md) | déploiement sur InfinityFree : limites réelles et 4 scénarios |
 | [`documentation/DEPLOIEMENT-VPS.md`](documentation/DEPLOIEMENT-VPS.md) | mise en production sur VPS Linux (Nginx, HTTPS, sauvegardes) |
 
 ## 8. Licence et propriété
