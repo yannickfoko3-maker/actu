@@ -1,0 +1,297 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Charte ACES Global Services — jetons de design
+--------------------------------------------------------------------------- */
+:root {
+  --aces-navy: #062b63;
+  --aces-deep: #0a3478;
+  --aces-blue: #0873d1;
+  --aces-electric: #00aeef;
+  --aces-gold: #e6ad20;
+  --aces-yellow: #ffb000;
+  --aces-ink: #17243a;
+  --aces-slate: #64748b;
+  --aces-mist: #f3f6fa;
+  --aces-line: #e2e8f0;
+  --header-height: 76px;
+}
+
+@layer base {
+  * {
+    @apply border-slate-200;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-display font-semibold text-navy;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: rgba(8, 115, 209, 0.18);
+    color: var(--aces-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--aces-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Barre de défilement discrète */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #eef2f8;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c3cfdf;
+    border-radius: 999px;
+    border: 2px solid #eef2f8;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #9fb2c9;
+  }
+}
+
+@layer components {
+  /* Boutons --------------------------------------------------------------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn bg-aces-blue text-white shadow-[0_10px_30px_-12px_rgba(8,115,209,0.7)] hover:bg-aces-deep hover:shadow-[0_16px_40px_-14px_rgba(8,115,209,0.75)];
+  }
+
+  .btn-gold {
+    @apply btn bg-gradient-to-r from-aces-gold to-aces-yellow text-navy shadow-[0_10px_30px_-12px_rgba(230,173,32,0.8)] hover:brightness-105;
+  }
+
+  .btn-outline {
+    @apply btn border border-white/40 bg-white/5 text-white backdrop-blur-sm hover:border-white hover:bg-white/15;
+  }
+
+  .btn-ghost {
+    @apply btn border border-slate-200 bg-white text-navy hover:border-aces-blue hover:text-aces-blue;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-xs;
+  }
+
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  /* Cartes ---------------------------------------------------------------- */
+  .card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-soft;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-1 hover:border-aces-blue/25 hover:shadow-card;
+  }
+
+  /* Étiquettes ------------------------------------------------------------ */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-aces-gold;
+  }
+
+  .eyebrow-line::before {
+    content: '';
+    @apply block h-px w-8 bg-aces-gold;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 text-xs font-medium text-ink-soft transition-colors;
+  }
+
+  .chip-active {
+    @apply border-aces-blue bg-aces-blue text-white;
+  }
+
+  /* Formulaires ----------------------------------------------------------- */
+  .label {
+    @apply mb-1.5 block text-[13px] font-semibold text-navy;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-ink shadow-sm transition-colors placeholder:text-slate-400 focus:border-aces-blue focus:outline-none focus:ring-4 focus:ring-aces-blue/10;
+  }
+
+  .input-error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-500/10;
+  }
+
+  .help {
+    @apply mt-1.5 text-xs text-ink-soft;
+  }
+
+  .error-text {
+    @apply mt-1.5 text-xs font-medium text-red-600;
+  }
+
+  /* Contenus riches ------------------------------------------------------- */
+  .rich-text {
+    @apply text-[15.5px] leading-[1.8] text-ink-soft;
+  }
+
+  .rich-text > * + * {
+    @apply mt-5;
+  }
+
+  .rich-text h2 {
+    @apply mt-10 text-[1.55rem] font-semibold leading-snug text-navy;
+  }
+
+  .rich-text h3 {
+    @apply mt-8 text-[1.2rem] font-semibold text-navy;
+  }
+
+  .rich-text p {
+    @apply leading-[1.85];
+  }
+
+  .rich-text ul {
+    @apply space-y-2 pl-1;
+  }
+
+  .rich-text ul > li {
+    @apply relative pl-6;
+  }
+
+  .rich-text ul > li::before {
+    content: '';
+    @apply absolute left-0 top-[0.6em] h-1.5 w-1.5 rounded-full bg-aces-gold;
+  }
+
+  .rich-text ol {
+    @apply list-decimal space-y-2 pl-6;
+  }
+
+  .rich-text a {
+    @apply font-medium text-aces-blue underline decoration-aces-blue/30 underline-offset-4 hover:decoration-aces-blue;
+  }
+
+  .rich-text strong {
+    @apply font-semibold text-navy;
+  }
+
+  .rich-text blockquote {
+    @apply rounded-r-xl border-l-4 border-aces-gold bg-aces-mist px-5 py-4 text-navy;
+  }
+
+  .rich-text img {
+    @apply rounded-xl;
+  }
+
+  .rich-text figure {
+    @apply my-8;
+  }
+
+  .rich-text figcaption {
+    @apply mt-2 text-center text-xs text-ink-soft;
+  }
+
+  /* Effets ---------------------------------------------------------------- */
+  .link-underline {
+    @apply relative inline-flex items-center gap-1.5 font-semibold text-aces-blue;
+  }
+
+  .link-underline::after {
+    content: '';
+    @apply absolute -bottom-0.5 left-0 h-px w-0 bg-current transition-all duration-300;
+  }
+
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  .surface-grid {
+    background-image: radial-gradient(circle at 1px 1px, rgba(8, 115, 209, 0.16) 1px, transparent 0);
+    background-size: 26px 26px;
+  }
+
+  .glass {
+    @apply border border-white/15 bg-white/10 backdrop-blur-md;
+  }
+
+  .section {
+    @apply py-20 sm:py-24 lg:py-28;
+  }
+
+  .section-tight {
+    @apply py-14 sm:py-16;
+  }
+
+  /* Squelettes de chargement --------------------------------------------- */
+  .skeleton {
+    @apply animate-pulse rounded-lg bg-slate-200/70;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+}
+
+/* Accessibilité : réduction des animations -------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Impression ------------------------------------------------------------- */
+@media print {
+  header,
+  footer,
+  .no-print {
+    display: none !important;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "aces-global-services",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site web premium ACES Global Services — automatisation, communication, énergie et sécurité",
+  "workspaces": ["frontend", "backend"],
+  "scripts": {
+    "dev": "concurrently -n API,WEB -c blue,magenta \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm --workspace backend run dev",
+    "dev:web": "npm --workspace frontend run dev",
+    "build": "npm --workspace backend run build && npm --workspace frontend run build",
+    "start": "npm --workspace backend run start",
+    "preview": "npm --workspace frontend run preview",
+    "db:generate": "npm --workspace backend run db:generate",
+    "db:migrate": "npm --workspace backend run db:migrate",
+    "db:push": "npm --workspace backend run db:push",
+    "db:seed": "npm --workspace backend run db:seed",
+    "db:studio": "npm --workspace backend run db:studio",
+    "db:sql": "node scripts/generate-sql.mjs",
+    "test": "npm --workspace backend run test && npm --workspace frontend run test",
+    "test:api": "npm --workspace backend run test",
+    "test:web": "npm --workspace frontend run test",
+    "typecheck": "npm --workspace backend run typecheck && npm --workspace frontend run typecheck",
+    "zip": "node scripts/build-zip.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

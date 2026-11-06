@@ -1,0 +1,338 @@
+[
+  {
+    "url": "/assets/images/about/energie.jpg",
+    "size": 68349,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "url": "/assets/images/about/entreprise.jpg",
+    "size": 120899,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 801
+  },
+  {
+    "url": "/assets/images/about/supervision.jpg",
+    "size": 61954,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 798
+  },
+  {
+    "url": "/assets/images/about/technicien.jpg",
+    "size": 202213,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "url": "/assets/images/articles/article-1.jpg",
+    "size": 28875,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 205
+  },
+  {
+    "url": "/assets/images/articles/article-2.jpg",
+    "size": 108539,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 802
+  },
+  {
+    "url": "/assets/images/articles/article-3.jpg",
+    "size": 99189,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "url": "/assets/images/articles/article-4.jpg",
+    "size": 96432,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 801
+  },
+  {
+    "url": "/assets/images/hero/hero-1.jpg",
+    "size": 175967,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 755
+  },
+  {
+    "url": "/assets/images/hero/hero-2.jpg",
+    "size": 71588,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "url": "/assets/images/hero/hero-3.jpg",
+    "size": 149556,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 672
+  },
+  {
+    "url": "/assets/images/hero/hero-4.jpg",
+    "size": 119993,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "url": "/assets/images/hero/hero-5.jpg",
+    "size": 109437,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "url": "/assets/images/misc/cloture.jpg",
+    "size": 194561,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "url": "/assets/images/misc/cta.jpg",
+    "size": 249563,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1636
+  },
+  {
+    "url": "/assets/images/projects/projet-1.jpg",
+    "size": 114023,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "url": "/assets/images/projects/projet-2.jpg",
+    "size": 128640,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 726
+  },
+  {
+    "url": "/assets/images/projects/projet-3.jpg",
+    "size": 75271,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 801
+  },
+  {
+    "url": "/assets/images/projects/projet-4.jpg",
+    "size": 172380,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "url": "/assets/images/projects/projet-5.jpg",
+    "size": 112095,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 400
+  },
+  {
+    "url": "/assets/images/projects/projet-6.jpg",
+    "size": 71588,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "url": "/assets/images/projects/projet-8.jpg",
+    "size": 54987,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 893
+  },
+  {
+    "url": "/assets/images/services/alarme-incendie-3.jpg",
+    "size": 54183,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "url": "/assets/images/services/alarme-incendie.jpg",
+    "size": 32549,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "url": "/assets/images/services/badge-identification-2.jpg",
+    "size": 29855,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "url": "/assets/images/services/badge-identification.jpg",
+    "size": 90274,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "url": "/assets/images/services/cloture-electrique-2.jpg",
+    "size": 78693,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 798
+  },
+  {
+    "url": "/assets/images/services/cloture-electrique.jpg",
+    "size": 368883,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1600
+  },
+  {
+    "url": "/assets/images/services/controle-acces-2.jpg",
+    "size": 73821,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "url": "/assets/images/services/controle-acces-3.jpg",
+    "size": 75271,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 801
+  },
+  {
+    "url": "/assets/images/services/controle-acces.jpg",
+    "size": 51442,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 670
+  },
+  {
+    "url": "/assets/images/services/geolocalisation-gps-2.jpg",
+    "size": 105450,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "url": "/assets/images/services/geolocalisation-gps-3.jpg",
+    "size": 64425,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 750
+  },
+  {
+    "url": "/assets/images/services/geolocalisation-gps.jpg",
+    "size": 54987,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 893
+  },
+  {
+    "url": "/assets/images/services/interphone-2.jpg",
+    "size": 36571,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "url": "/assets/images/services/interphone.jpg",
+    "size": 151027,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1126
+  },
+  {
+    "url": "/assets/images/services/panneaux-solaires-2.jpg",
+    "size": 108539,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 802
+  },
+  {
+    "url": "/assets/images/services/panneaux-solaires-3.jpg",
+    "size": 68349,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "url": "/assets/images/services/panneaux-solaires.jpg",
+    "size": 149556,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 672
+  },
+  {
+    "url": "/assets/images/services/portails-automatiques-2.jpg",
+    "size": 112095,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 400
+  },
+  {
+    "url": "/assets/images/services/portails-automatiques.jpg",
+    "size": 206688,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "url": "/assets/images/services/reconnaissance-faciale-2.jpg",
+    "size": 46504,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1200
+  },
+  {
+    "url": "/assets/images/services/reconnaissance-faciale.jpg",
+    "size": 84091,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 675
+  },
+  {
+    "url": "/assets/images/services/sas-entree-2.jpg",
+    "size": 70521,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 902
+  },
+  {
+    "url": "/assets/images/services/sas-entree.jpg",
+    "size": 73057,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 902
+  },
+  {
+    "url": "/assets/images/services/videosurveillance-2.jpg",
+    "size": 79744,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 685
+  },
+  {
+    "url": "/assets/images/services/videosurveillance-3.jpg",
+    "size": 93287,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 1800
+  },
+  {
+    "url": "/assets/images/services/videosurveillance.jpg",
+    "size": 71588,
+    "mimeType": "image/jpeg",
+    "width": 1200,
+    "height": 800
+  }
+]

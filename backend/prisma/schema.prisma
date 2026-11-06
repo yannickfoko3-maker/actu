@@ -1,0 +1,309 @@
+// ---------------------------------------------------------------------------
+// ACES GLOBAL SERVICES — Schéma Prisma (MySQL 8 / MariaDB 10.6+)
+// ---------------------------------------------------------------------------
+// Génération du client :  npm run db:generate
+// Migrations           :  npm run db:migrate
+// Données initiales    :  npm run db:seed
+// ---------------------------------------------------------------------------
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ---------------------------------------------------------------------------
+// Utilisateurs, rôles et permissions
+// ---------------------------------------------------------------------------
+
+model Role {
+  id          String      @id @default(cuid())
+  name        String      @unique // super-admin | admin | editor
+  label       String
+  description String?     @db.Text
+  permissions Json // string[] — cf. src/auth/permissions.ts
+  isSystem    Boolean     @default(false)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  users       AdminUser[]
+}
+
+model Permission {
+  id          String   @id @default(cuid())
+  code        String   @unique // ex. services.write
+  label       String
+  group       String
+  createdAt   DateTime @default(now())
+}
+
+model AdminUser {
+  id           String         @id @default(cuid())
+  name         String
+  email        String         @unique
+  passwordHash String
+  roleId       String
+  role         Role           @relation(fields: [roleId], references: [id])
+  isActive     Boolean        @default(true)
+  lastLoginAt  DateTime?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  activityLogs ActivityLog[]
+
+  @@index([roleId])
+}
+
+model ActivityLog {
+  id          String     @id @default(cuid())
+  userId      String?
+  user        AdminUser? @relation(fields: [userId], references: [id], onDelete: SetNull)
+  userName    String
+  action      String // login | create | update | delete | publish | upload | logout
+  entity      String
+  entityId    String?
+  description String     @db.Text
+  ip          String?
+  createdAt   DateTime   @default(now())
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Contenus du site
+// ---------------------------------------------------------------------------
+
+model Service {
+  id               String         @id @default(cuid())
+  slug             String         @unique
+  title            String
+  tagline          String
+  shortDescription String         @db.Text
+  description      String         @db.LongText
+  icon             String         @default("shield")
+  heroImage        String
+  coverImage       String
+  benefits         Json // string[]
+  features         Json // { title, description }[]
+  applications     Json // string[]
+  process          Json // { step, title, description }[]
+  equipment        Json // string[]
+  faqs             Json // { question, answer }[]
+  seoTitle         String?
+  seoDescription   String?        @db.Text
+  order            Int            @default(0)
+  isPublished      Boolean        @default(true)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  images           ServiceImage[]
+
+  @@index([isPublished, order])
+}
+
+model ServiceImage {
+  id        String  @id @default(cuid())
+  serviceId String
+  service   Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String  @default("")
+  order     Int     @default(0)
+
+  @@index([serviceId, order])
+}
+
+model Page {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  title          String
+  subtitle       String?
+  heroImage      String?
+  content        String   @db.LongText
+  sections       Json? // { key, title, body, image }[]
+  seoTitle       String?
+  seoDescription String?  @db.Text
+  status         String   @default("PUBLISHED") // DRAFT | PUBLISHED
+  system         Boolean  @default(false) // pages non supprimables
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([status])
+}
+
+model HeroSlide {
+  id             String   @id @default(cuid())
+  title          String
+  subtitle       String   @db.Text
+  image          String
+  eyebrow        String?
+  primaryLabel   String   @default("Demander un devis")
+  primaryUrl     String   @default("/devis")
+  secondaryLabel String   @default("Découvrir nos solutions")
+  secondaryUrl   String   @default("/nos-activites")
+  order          Int      @default(0)
+  isActive       Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([isActive, order])
+}
+
+model Project {
+  id          String         @id @default(cuid())
+  slug        String         @unique
+  title       String
+  category    String // slug de la prestation associée
+  client      String?
+  location    String
+  year        Int?
+  summary     String         @db.Text
+  description String         @db.LongText
+  coverImage  String
+  isPublished Boolean        @default(true)
+  featured    Boolean        @default(false)
+  order       Int            @default(0)
+  createdAt   DateTime       @default(now())
+  updatedAt   DateTime       @updatedAt
+
+  images      ProjectImage[]
+
+  @@index([isPublished, category])
+}
+
+model ProjectImage {
+  id        String  @id @default(cuid())
+  projectId String
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  url       String
+  alt       String  @default("")
+  order     Int     @default(0)
+
+  @@index([projectId, order])
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  name        String
+  description String?   @db.Text
+  kind        String    @default("article") // article | project
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  articles    Article[]
+}
+
+model Article {
+  id             String    @id @default(cuid())
+  slug           String    @unique
+  title          String
+  excerpt        String    @db.Text
+  content        String    @db.LongText
+  coverImage     String
+  categoryId     String?
+  category       Category? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  tags           Json // string[]
+  author         String    @default("ACES Global Services")
+  status         String    @default("DRAFT") // DRAFT | PUBLISHED | SCHEDULED
+  publishedAt    DateTime?
+  readingTime    Int       @default(4)
+  views          Int       @default(0)
+  seoTitle       String?
+  seoDescription String?   @db.Text
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  @@index([status, publishedAt])
+  @@index([categoryId])
+}
+
+model Media {
+  id           String   @id @default(cuid())
+  filename     String
+  originalName String
+  url          String
+  thumbnailUrl String?
+  mimeType     String
+  size         Int
+  width        Int?
+  height       Int?
+  alt          String   @default("")
+  caption      String   @default("")
+  createdAt    DateTime @default(now())
+
+  @@index([mimeType])
+}
+
+model Testimonial {
+  id         String   @id @default(cuid())
+  authorName String
+  authorRole String?
+  company    String?
+  content    String   @db.Text
+  rating     Int      @default(5)
+  photo      String?
+  isPublished Boolean @default(false)
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([isPublished, order])
+}
+
+// ---------------------------------------------------------------------------
+// Demandes commerciales
+// ---------------------------------------------------------------------------
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String
+  subject   String
+  message   String   @db.Text
+  status    String   @default("NEW") // NEW | READ | ARCHIVED
+  ip        String?
+  createdAt DateTime @default(now())
+
+  @@index([status, createdAt])
+}
+
+model QuoteRequest {
+  id                  String   @id @default(cuid())
+  name                String
+  company             String?
+  email               String
+  phone               String
+  city                String
+  serviceSlug         String?
+  serviceTitle        String
+  projectDescription  String   @db.Text
+  budget              String?
+  preferredContact    String   @default("phone")
+  consent             Boolean  @default(true)
+  status              String   @default("NEW") // NEW | IN_PROGRESS | DONE | ARCHIVED
+  internalNotes       String?  @db.LongText
+  ip                  String?
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([status, createdAt])
+}
+
+// ---------------------------------------------------------------------------
+// Paramètres du site (clé / valeur)
+// ---------------------------------------------------------------------------
+
+model SiteSetting {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String   @db.Text
+  group     String   @default("general")
+  label     String?
+  type      String   @default("text") // text | textarea | image | url | email | tel | json
+  updatedAt DateTime @updatedAt
+}

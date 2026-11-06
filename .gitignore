@@ -1,0 +1,43 @@
+# Dépendances
+node_modules/
+.pnpm-store/
+
+# Compilation
+dist/
+build/
+*.tsbuildinfo
+
+# Variables d'environnement (ne jamais commiter de secrets)
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# Données locales et téléversements
+backend/.data/
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Archives de livraison et sauvegardes
+*.zip
+*.tar.gz
+*.sql.gz
+.zip-staging/
+
+# Tests et couverture
+coverage/
+.vitest/
+
+# Journaux et fichiers temporaires
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*.swp
+
+# Compilation TypeScript (fichiers émis par erreur)
+*.tsbuildinfo
