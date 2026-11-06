@@ -135,6 +135,7 @@ Changez ce mot de passe dès la première connexion (menu du compte → *Mon pro
 
 | Fichier | Contenu |
 | --- | --- |
+| [`documentation/DEMARRAGE-LOCAL-XAMPP.md`](documentation/DEMARRAGE-LOCAL-XAMPP.md) | **démarrage local avec XAMPP**, pas à pas (Windows) |
 | [`documentation/INSTALLATION.md`](documentation/INSTALLATION.md) | installation détaillée, configuration, dépannage |
 | [`documentation/ADMINISTRATION.md`](documentation/ADMINISTRATION.md) | guide du back-office, rôles, bonnes pratiques |
 | [`documentation/API.md`](documentation/API.md) | référence complète de l'API REST |
