@@ -22,6 +22,8 @@ backend/uploads/*
 
 # Archives de livraison et sauvegardes
 *.zip
+# exception : archive de livraison publiée pour téléchargement
+!ACES_GLOBAL_SERVICES_CONGO.zip
 *.tar.gz
 *.sql.gz
 .zip-staging/
